@@ -1,5 +1,4 @@
 import pandas as pd
-from operator import index
 import pickle
 import time
 from sklearn import tree
@@ -30,22 +29,17 @@ print ("The data is loaded")
 # use test values for encoding
 X_all_raw = pd.concat([train_values, test_values], axis=0, sort=False)
 # drop index column
-X_all_raw.reset_index(drop=True)
+X_all_raw = X_all_raw.reset_index(drop=True)
 # convert strings to integer where necessary
 X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
+print ("change datatype")
 
 #-------------------------#
 ##      ENCODE data      ##
 #-------------------------#
 encoded_data = encoder(X_all_shape, train_labels, string_columns)
 
-# split encoded data 
-encoded_string_columns = encoded_data[string_columns]
-encoded_int_columns = encoded_data[int_columns]
-
 # save encoded data for post-processing
-encoded_string_columns.to_csv(encoded_string_col_path, index=False)
-encoded_int_columns.to_csv(encoded_int_col_path, index=False)
 encoded_data.to_csv(encoded_data_path, index=False)
 print ("The data is encoded")
 
@@ -54,7 +48,7 @@ print ("The data is encoded")
 #-------------------------#
 
 # Prepare data for training
-X_train = encoded_data.loc[:len(train_values), :]
+X_train = encoded_data.loc[:len(train_values)-1, :]
 X_test = encoded_data.loc[len(train_values):, :]
 y_train = train_labels["damage_grade"]
 
@@ -70,7 +64,6 @@ y_train = train_labels["damage_grade"]
 model = tree.DecisionTreeClassifier(random_state=42)
 param_grid = {
     "max_depth": [1, 2, 3, 7],
-    "criterion": ['gini', 'entropy'],
     "min_samples_leaf": [1, 3, 5],
     }
 print("The model is set up")
