@@ -33,13 +33,13 @@ Project Organization
     │   │   ├── test.py           <- Contains function for testing the model.
     │   │   └── train_model.py    <- Function for training the model.
     │   │   
-    │   ├── helper             <- Scripts to train models and then use trained models to make predictions
-    │   │   │                 
+    │   ├── helper             <- Scripts to train models and then use trained models to make 
+    │   │   │                     predictions
     │   │   └── conf.py        <- Contains all file-paths and data-keys
     │   │
     │   ├── main.py            <- Script to execute the entire analysis and model predicion
-    │   └── train.py           <- Script for encoding the data, taining the model and making the final predictions
-    │
+    │   └── train.py           <- Script for encoding the data, taining the model and making 
+    │                             the final predictions
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
