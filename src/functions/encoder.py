@@ -43,6 +43,6 @@ Target_encoder = ce_te.transform(X).head(10)
 #-------------------------------------------------------
 ce_baseN4 = ce.BaseNEncoder(cols=['age'],base=2)
 # fit and transform and you will get the encoded data
-ce_baseN4.fit_transform(data_ft).head(10)
+ce_baseN4.fit_transform(data_age).head(10)
 
 pause
