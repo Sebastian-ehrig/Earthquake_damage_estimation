@@ -53,5 +53,20 @@ Project Organization
 
 
 --------
+data notation
+
+raw data: 
+ train_values 
+ train_labels 
+ test_values
+ X_all_raw
+
+preprocessed data:
+ X_train
+ y_train
+ X_test
+
+output data:
+ estimation
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

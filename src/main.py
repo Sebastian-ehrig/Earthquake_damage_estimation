@@ -30,7 +30,7 @@ train
 
 # CREATE EQD ESTIMATION
 
-estimation= pd.concat([test_values[building_id], prediction],axis=1)
+estimation = pd.concat([test_values[building_id], prediction],axis=1)
 estimation.to_csv('./reports/EQD_Estimation.csv')
 
 ############################################
