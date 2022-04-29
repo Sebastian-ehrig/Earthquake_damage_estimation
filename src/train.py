@@ -1,23 +1,14 @@
-# TRAIN MODEL AND CROSS-VALIDATE
 
-from functions.train_model import train_model
-from sklearn import tree
-import catboost as cb
-
-# define model
-model = tree.DecisionTreeClassifier(max_depth=5,random_state=42,criterion='entropy')
-# model = cb.CatBoostRegressor(learning_rate=0.1,n_estimators=100,max_depth=5)
-
-# fit the train data to train labels
-fitted_model = train_model(X_train, y_train, model)
-print("Model is trained")
-
+from operator import index
 from helper.conf import *
-from functions.helper import change_datatype
-from functions.helper import load_data
+from functions.helper import change_datatype, load_data
+from functions.encoder import encoder
 import pandas as pd
 
-# LOAD DATA
+#------------------------------#
+##   LOAD and CONVERT data    ##
+#------------------------------# 
+
 train_values = load_data(TRAIN_VALUES_PATH)
 train_labels = load_data(TRAIN_LABELS_PATH)
 test_values = load_data(TEST_VALUES_PATH)
@@ -25,19 +16,26 @@ test_values = load_data(TEST_VALUES_PATH)
 ## combine values of train and test set 
 X_all_raw = pd.concat([train_values, test_values], axis=0, sort=False)
 
-# X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
+# drop index column
+X_all_raw.reset_index(drop=True)
+
+# convert strings to integer where necessary
 X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
-print(f"The score on the training data is {f1score}")
 
-# # fitting the data
-# fitted_model = train_model(train_values, train_labels, model)
-# print("Model is trained")
+#-------------------------#
+##      ENCODE data      ##
+#-------------------------#
+encoded_data = encoder(X_all_shape, train_labels, string_columns)
 
-# # calculate f1-score on training data (not test score, incl. validation & training data)
-# f1score = model.predict(X_train)
+# split encoded data 
+encoded_string_columns = encoded_data[string_columns]
+encoded_int_columns = encoded_data[int_columns]
 
-# print(f"The score on the training data is {f1score}")
+# save encoded data for post-processing
+encoded_string_columns.to_csv(encoded_string_col_path, index=False)
+encoded_int_columns.to_csv(encoded_int_col_path, index=False)
+encoded_data.to_csv(encoded_data_path, index=False)
 
-# # predict on test set
-# prediction = model.predict(X_test)
-# print("Predictions on test data are done")
+#-------------------------#
+##      TRAIN data       ##
+#-------------------------#
