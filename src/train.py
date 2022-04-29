@@ -1,11 +1,10 @@
+import pandas as pd
+from sklearn import tree
 from operator import index
-from helper.conf import *
+from helper.conf import * 
 from functions.helper import change_datatype, load_data
 from functions.encoder import encoder
-import pandas as pd
-from helper.conf import *
 from functions.helper import load_data, change_datatype
-from sklearn import tree
 from functions.train_model import *
 
 
@@ -30,7 +29,7 @@ X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
 ##      ENCODE data      ##
 #-------------------------#
 encoded_data = encoder(X_all_shape, train_labels, string_columns)
-
+a=1
 # split encoded data 
 encoded_string_columns = encoded_data[string_columns]
 encoded_int_columns = encoded_data[int_columns]
