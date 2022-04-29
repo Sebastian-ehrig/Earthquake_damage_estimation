@@ -11,4 +11,3 @@ def change_datatype(data, string_columns, int_columns):
     data.loc[:, int_columns] = data.loc[:, int_columns].astype(int)
     return data
 
-        
