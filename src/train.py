@@ -1,15 +1,16 @@
+import pandas as pd
 from operator import index
+import pickle
+import time
+from sklearn import tree
+from sklearn.ensemble import GradientBoostingClassifier
+
 from helper.conf import *
 from functions.helper import change_datatype, load_data
 from functions.encoder import encoder
-import pandas as pd
-from helper.conf import *
 from functions.helper import load_data, change_datatype
-from sklearn import tree
-from sklearn.ensemble import GradientBoostingClassifier
-from functions.train_model import *
-import pickle
-import time
+from functions.train_model import train_model
+
 
 
 #### track processing time ####
@@ -24,7 +25,7 @@ start_time_all = time.time()
 train_values = load_data(TRAIN_VALUES_PATH)
 train_labels = load_data(TRAIN_LABELS_PATH)
 test_values = load_data(TEST_VALUES_PATH)
-print ("loaded data")
+print ("The data is loaded")
 
 # use test values for encoding
 X_all_raw = pd.concat([train_values, test_values], axis=0, sort=False)
@@ -46,7 +47,7 @@ encoded_int_columns = encoded_data[int_columns]
 encoded_string_columns.to_csv(encoded_string_col_path, index=False)
 encoded_int_columns.to_csv(encoded_int_col_path, index=False)
 encoded_data.to_csv(encoded_data_path, index=False)
-
+print ("The data is encoded")
 
 #-------------------------#
 ##      TRAIN data       ##
@@ -58,7 +59,15 @@ X_test = encoded_data.loc[len(train_values):, :]
 y_train = train_labels["damage_grade"]
 
 # select model
-model = tree.GradientBoostingClassifier(random_state=42)
+
+# model = GradientBoostingClassifier(random_state=42)
+#param_grid = {
+#    "n_estimators": [10, 50, 100],
+#    "learning_rate": [0.01, 0.1, 1],
+#    "max_depth": [1, 2, 3],
+#    }
+
+model = tree.DecisionTreeClassifier(random_state=42)
 param_grid = {
     "max_depth": [1, 2, 3, 7],
     "criterion": ['gini', 'entropy'],
@@ -76,9 +85,9 @@ fitted_model = train_model(X_train, y_train, model, param_grid)
 
 # save the model to disk
 pickle.dump(fitted_model, open(FITTED_MODEL_PATH, 'wb'))
-print ("The estimation is saved to reports")
 
+print ("The estimation is saved to reports")
 
 #### track processing time ####
 end_time_all = time.time()
-print("--- %s seconds for the program to run ---" % (end_time - start_time))
+print("--- %s seconds for the program to run ---" % (end_time_all - start_time_all))
