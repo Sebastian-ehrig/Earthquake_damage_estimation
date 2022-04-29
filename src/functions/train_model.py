@@ -17,4 +17,4 @@ def train_model(X, y, model, param_grid):
     score = gscv.best_score_
     print(f"The F1-Score of the training is {score}")
 
-    return gscv.best_estimator_, score
+    return gscv.best_estimator_

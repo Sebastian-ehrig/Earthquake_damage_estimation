@@ -9,8 +9,7 @@ from functions.helper import change_datatype, load_data
 from functions.encoder import encoder
 from functions.helper import load_data, change_datatype
 from functions.train_model import train_model
-
-
+from functions.test import test_data
 
 #### track processing time ####
 start_time_all = time.time()
@@ -54,18 +53,19 @@ y_train = train_labels["damage_grade"]
 
 # select model
 
-# model = GradientBoostingClassifier(random_state=42)
-#param_grid = {
-#    "n_estimators": [10, 50, 100],
-#    "learning_rate": [0.01, 0.1, 1],
-#    "max_depth": [1, 2, 3],
-#    }
-
-model = tree.DecisionTreeClassifier(random_state=42)
+model = GradientBoostingClassifier(random_state=42)
 param_grid = {
-    "max_depth": [1, 2, 3, 7],
-    "min_samples_leaf": [1, 3, 5],
+    "n_estimators": [100, 200],
+    "learning_rate": [0.001, 0.01, 0.1],
+    "min_samples_leaf": [5, 10, 15],
     }
+
+#model = tree.DecisionTreeClassifier()
+#param_grid = {
+#    "max_depth": [1, 3, 5, 10],
+#    "min_samples_leaf": [1, 3, 5],
+#    "criterion" : ['gini', 'entropy'],
+#    }
 print("The model is set up")
 
 # fit the train data to train labels
@@ -78,7 +78,7 @@ fitted_model = train_model(X_train, y_train, model, param_grid)
 
 # save the model to disk
 pickle.dump(fitted_model, open(FITTED_MODEL_PATH, 'wb'))
-
+test_data(X_test, fitted_model)
 print ("The estimation is saved to reports")
 
 #### track processing time ####
