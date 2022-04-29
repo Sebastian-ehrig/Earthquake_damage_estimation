@@ -8,6 +8,12 @@ from functions.helper import load_data, change_datatype
 from sklearn import tree
 from sklearn.ensemble import GradientBoostingClassifier
 from functions.train_model import *
+import pickle
+import time
+
+
+#### track processing time ####
+start_time_all = time.time()
 
 
 #------------------------------#
@@ -58,17 +64,21 @@ param_grid = {
     "criterion": ['gini', 'entropy'],
     "min_samples_leaf": [1, 3, 5],
     }
-print ("The model is set up")
+print("The model is set up")
 
 # fit the train data to train labels
 fitted_model = train_model(X_train, y_train, model, param_grid)
 
 
 #-------------------------#
-##      Estimation       ##
+##  Estimation of data   ##
 #-------------------------#
 
 # save the model to disk
-import pickle
 pickle.dump(fitted_model, open(FITTED_MODEL_PATH, 'wb'))
 print ("The estimation is saved to reports")
+
+
+#### track processing time ####
+end_time_all = time.time()
+print("--- %s seconds for the program to run ---" % (end_time - start_time))
