@@ -4,14 +4,12 @@ TRAIN_VALUES_PATH = "./data/raw/train_values.csv"
 TRAIN_LABELS_PATH = "./data/raw/train_labels.csv"
 TEST_VALUES_PATH = "./data/raw/test_values.csv"
 
-<<<<<<< Updated upstream
 # Pre-processed data location:
 encoded_string_col_path = "./data/processed/encoded_string_columns.csv"
 encoded_int_col_path = "./data/processed/encoded_int_columns.csv"
 encoded_data_path = "./data/processed/encoded_data.csv"
-=======
+
 FITTED_MODEL_PATH = './models/model.pickle'
->>>>>>> Stashed changes
 
 string_columns = [
     'height_percentage',

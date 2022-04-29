@@ -1,29 +1,18 @@
-<<<<<<< Updated upstream
 
 from operator import index
 from helper.conf import *
 from functions.helper import change_datatype, load_data
 from functions.encoder import encoder
-=======
-# TRAIN MODEL AND CROSS-VALIDATE
-
-from functions.train_model import train_model
-from sklearn import tree
-# import catboost as cb
->>>>>>> Stashed changes
 import pandas as pd
 from helper.conf import *
 from functions.helper import load_data, change_datatype
 
 
-<<<<<<< Updated upstream
 #------------------------------#
 ##   LOAD and CONVERT data    ##
 #------------------------------# 
 
-=======
 # load data for training
->>>>>>> Stashed changes
 train_values = load_data(TRAIN_VALUES_PATH)
 train_labels = load_data(TRAIN_LABELS_PATH)
 values_int = change_datatype(train_values, string_columns, int_columns)
@@ -33,7 +22,6 @@ print ("loaded data")
 
 
 
-<<<<<<< Updated upstream
 # drop index column
 X_all_raw.reset_index(drop=True)
 
@@ -57,7 +45,6 @@ encoded_data.to_csv(encoded_data_path, index=False)
 #-------------------------#
 ##      TRAIN data       ##
 #-------------------------#
-=======
 
 
 from xgboost import XGBClassifier
@@ -79,4 +66,3 @@ fitted_model = train_model(X_train, (y_train-1), model, param_grid)
 # save the model to disk
 import pickle
 pickle.dump(fitted_model, open(FITTED_MODEL_PATH, 'wb'))
->>>>>>> Stashed changes
