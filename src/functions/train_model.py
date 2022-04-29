@@ -1,9 +1,15 @@
-from sklearn.metrics import f1_score
 from sklearn.model_selection import GridSearchCV
 import time
 
 
 def train_model(X, y, model, param_grid):
+
+    """
+    This function fits the values to the labels of the training set. 
+    The Score is the f1(micro) score by which the final model out of 
+    all grid attribute settings is chosen as best estimator. 
+    The best model is returned. 
+    """
 
     gscv = GridSearchCV(estimator=model, param_grid=param_grid, scoring="f1_micro", refit=True)
 

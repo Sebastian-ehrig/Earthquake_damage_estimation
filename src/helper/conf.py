@@ -1,3 +1,10 @@
+import time
+
+"""
+These are the configurations and sources. 
+"""
+
+time_of_run = time.strftime('_%Y_%m_%d_%H_%M')
 
 # Raw data location:
 TRAIN_VALUES_PATH = "./data/raw/train_values.csv"

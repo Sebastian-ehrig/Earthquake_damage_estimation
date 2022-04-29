@@ -1,0 +1,16 @@
+EQD_Estimation_2022_04_30_00_49
+
+model = tree.DecisionTreeClassifier()
+param_grid = {
+    "max_depth": [5, 10, 15, 20],
+    "min_samples_leaf": [4, 6, 10],
+    "criterion" : ['gini'],
+    # gini is seemingly faster than entropy at equal performance at score
+    }
+    
+--- Training the model...
+--- 90.81985998153687 seconds ---
+The F1-Score of the training is 0.7442795675739063
+Predictions on test data are done
+--- The estimation is saved to reports.
+--- 97.8537392616272 seconds for the program to run ---

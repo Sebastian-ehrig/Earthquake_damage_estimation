@@ -16,9 +16,9 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── models             <- Models generated.  
     │
-    ├── reports            <- Generated analysis as HTML.
+    ├── reports            <- Generated analysis as csv.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment.
@@ -44,13 +44,14 @@ Project Organization
 
 
 --------
+
 data notations used in the scope of this project:
 
 raw data: 
  train_values 
  train_labels 
  test_values
- X_all_raw
+ X_all_raw (train & test values)
 
 preprocessed data:
  X_train
@@ -58,9 +59,9 @@ preprocessed data:
  X_test
 
 modeled data:
- fitted_model
+ fitted_model (cv on train set)
 
 output data:
- estimation
+ prediction (on test set)
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

@@ -1,0 +1,16 @@
+EQD_Estimation_2022_04_29_23
+
+
+model = GradientBoostingClassifier(random_state=42)
+param_grid = {
+    "n_estimators": [100],
+    "learning_rate": [1],
+    "min_samples_leaf": [5],
+    }
+
+The model is set up
+--- 813.9416272640228 seconds ---
+The F1-Score of the training is 0.7476294990891598
+Predictions on test data are done
+The estimation is saved to reports
+--- 822.334098815918 seconds for the program to run ---

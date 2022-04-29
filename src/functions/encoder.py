@@ -4,8 +4,8 @@ from tqdm import tqdm
 
 def encoder(values: pd.DataFrame, labels: pd.DataFrame, string_columns: List[str]) -> pd.DataFrame:
     """
-    This function reads in the values and the labels, applieds target encoding and returns
-    a dataframe which is consists only of numeric columns
+    This function reads in the values and the labels, applies target encoding and returns
+    a dataframe which is consists only of numeric columns.
     """
 
     train_data = pd.merge(values, labels, how="inner")
