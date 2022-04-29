@@ -6,6 +6,8 @@ from functions.encoder import encoder
 import pandas as pd
 from helper.conf import *
 from functions.helper import load_data, change_datatype
+from sklearn import tree
+from functions.train_model import *
 
 
 #------------------------------#
@@ -18,9 +20,10 @@ train_labels = load_data(TRAIN_LABELS_PATH)
 values_int = change_datatype(train_values, string_columns, int_columns)
 X_train = values_int.drop(string_columns, axis=1)
 y_train = train_labels["damage_grade"]
+test_values = load_data(TEST_VALUES_PATH)
 print ("loaded data")
 
-
+X_all_raw = pd.concat([train_values, test_values], axis=0, sort=False)
 
 # drop index column
 X_all_raw.reset_index(drop=True)
@@ -47,16 +50,16 @@ encoded_data.to_csv(encoded_data_path, index=False)
 #-------------------------#
 
 
-from xgboost import XGBClassifier
-# define model
-# model = tree.DecisionTreeClassifier(random_state=42)
+
+# select model
+model = tree.DecisionTreeClassifier(random_state=42)
 # model = cb.CatBoostRegressor(learning_rate=0.1,n_estimators=100,max_depth=5)
+# from xgboost import XGBClassifier
 # model = XGBClassifier(booster='gbtree')
 param_grid = {
-    'base_score': [0.5],
-    #"max_depth": [1, 2, 3, 7, 10],
-    #"criterion": ['gini', 'entropy'],
-    #"min_samples_leaf": [1, 3, 5],
+    "max_depth": [1, 2, 3, 7],
+    "criterion": ['gini', 'entropy'],
+    "min_samples_leaf": [1, 3, 5],
     }
 print ("set-up model")
 
