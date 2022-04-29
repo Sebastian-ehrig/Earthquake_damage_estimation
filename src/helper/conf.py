@@ -12,6 +12,9 @@ encoded_data_path = "./data/processed/encoded_data.csv"
 FITTED_MODEL_PATH = './models/model.pickle'
 
 string_columns = [
+    'geo_level_1_id',
+    'geo_level_2_id',
+    'geo_level_3_id',
     'height_percentage',
     'land_surface_condition',
     'foundation_type',
@@ -25,9 +28,6 @@ string_columns = [
 
 int_columns = [
     'building_id',
-    'geo_level_1_id',
-    'geo_level_2_id',
-    'geo_level_3_id',
     'count_floors_pre_eq', 'age',
     'area_percentage',
     'has_superstructure_adobe_mud',

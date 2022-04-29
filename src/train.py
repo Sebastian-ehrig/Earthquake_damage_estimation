@@ -1,4 +1,3 @@
-
 from operator import index
 from helper.conf import *
 from functions.helper import change_datatype, load_data
@@ -17,17 +16,13 @@ from functions.train_model import *
 # load data for training
 train_values = load_data(TRAIN_VALUES_PATH)
 train_labels = load_data(TRAIN_LABELS_PATH)
-values_int = change_datatype(train_values, string_columns, int_columns)
-X_train = values_int.drop(string_columns, axis=1)
-y_train = train_labels["damage_grade"]
 test_values = load_data(TEST_VALUES_PATH)
 print ("loaded data")
 
+# use test values for encoding
 X_all_raw = pd.concat([train_values, test_values], axis=0, sort=False)
-
 # drop index column
 X_all_raw.reset_index(drop=True)
-
 # convert strings to integer where necessary
 X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
 
@@ -49,7 +44,7 @@ encoded_data.to_csv(encoded_data_path, index=False)
 ##      TRAIN data       ##
 #-------------------------#
 
-
+y_train = train_labels["damage_grade"]
 
 # select model
 model = tree.DecisionTreeClassifier(random_state=42)
