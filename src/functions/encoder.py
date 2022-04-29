@@ -1,3 +1,6 @@
+
+X_all_raw
+
 import category_encoders as ce
 import pandas as pd
 import numpy as np 
@@ -11,6 +14,11 @@ TEST_VALUES_PATH = "./data/raw/test_values.csv"
 train_values = pd.read_csv(TRAIN_VALUES_PATH,index_col=0)
 train_labels = pd.read_csv(TRAIN_LABELS_PATH,index_col=0)
 test_values = pd.read_csv(TEST_VALUES_PATH,index_col=0)
+
+## make report on values
+# from pandas_profiling import ProfileReport
+# prof = ProfileReport(X_all_raw)
+# prof.to_file(output_file='./reports/data_report.html')
 
 data = pd.concat([train_values, test_values], axis=0, sort=False)
 data_head = data.head(10)

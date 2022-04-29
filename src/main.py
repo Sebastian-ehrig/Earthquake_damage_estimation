@@ -4,18 +4,12 @@ import os
 
 ###########################################
 
-# LOAD DATA
-import load
-load
-
 
 # PREPROCESSING
 
  ## encode data
 import functions.encoder
 functions.encoder
-
- ## split data set
 
 
 # TRAIN MODEL
