@@ -66,6 +66,9 @@ preprocessed data:
  y_train
  X_test
 
+modeled data:
+ fitted_model
+
 output data:
  estimation
 

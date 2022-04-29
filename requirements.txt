@@ -1,1 +1,8 @@
 python==3.7
+pandas
+os
+time
+sklearn
+category_encoders
+numpy
+sklearn
