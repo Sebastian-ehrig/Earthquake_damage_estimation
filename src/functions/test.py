@@ -19,3 +19,4 @@ def test_data(X, model):
         f.write('EQD_Estimation' + str(time_of_run))
     pass
     
+

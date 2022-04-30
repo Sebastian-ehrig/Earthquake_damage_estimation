@@ -19,7 +19,6 @@ def encoder(values: pd.DataFrame, labels: pd.DataFrame, string_columns: List[str
         encoded_values.loc[:, col] = values.loc[:, col].map(categorical_dict).astype(float)
 
 
-    # one-hot encoding
     # create an object of the OneHotEncoder
     ce_one = ce.OneHotEncoder(cols=one_hot_columns) 
     encoded_values = ce_one.fit_transform(encoded_values)

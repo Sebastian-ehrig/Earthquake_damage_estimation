@@ -6,3 +6,4 @@ time
 sklearn
 category_encoders
 sklearn
+pandas_profiling
