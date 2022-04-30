@@ -15,7 +15,7 @@ Model workflow and data-analysis
 3. Encode data: reads in the values and the labels, applies target encoding and 
    returns a dataframe which consists only of numeric columns.
 4. Model training:
-5. Model Predictions and generating the reports.
+5. Compute predictions and generate the reports.
 
 
 Project Organization and folder structure
