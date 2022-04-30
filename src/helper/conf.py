@@ -26,12 +26,12 @@ string_columns = [
     'roof_type',
     'ground_floor_type',
     'plan_configuration',
-    # 'legal_ownership_status' parameter has no effect
+    'legal_ownership_status'  # parameter has no effect
 ]
 
 one_hot_columns = [
     'land_surface_condition',
-    'roof_type'
+    'roof_type',
     'other_floor_type',
     'position',
 ]

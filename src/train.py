@@ -42,7 +42,7 @@ X_all_shape = change_datatype(X_all_raw, string_columns, int_columns)
 
 # Encode data
 print("Encoding the data:")
-encoded_data = encoder(X_all_shape, train_labels, string_columns)
+encoded_data = encoder(X_all_shape, train_labels, string_columns, one_hot_columns)
 
 # Save encoded data for post-processing
 encoded_data.to_csv(encoded_data_path, index=False)
