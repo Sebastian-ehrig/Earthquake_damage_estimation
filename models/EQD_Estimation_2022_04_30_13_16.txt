@@ -1,0 +1,14 @@
+EQD_Estimation_2022_04_30_13_16
+
+model = tree.DecisionTreeClassifier()
+param_grid = {
+    "max_depth": [3, 5],
+    "min_samples_leaf": [4],
+    "criterion" : ['gini'],
+    
+--- Training the model...
+--- 7.486415386199951 seconds ---
+The F1-Score of the training is 0.7392143561009219
+Predictions on test data are done
+--- The estimation is saved to reports.
+--- 15.13677430152893 seconds for the program to run ---

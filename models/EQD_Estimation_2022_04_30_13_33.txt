@@ -1,0 +1,12 @@
+EQD_Estimation_2022_04_30_13_33
+
+
+
+
+
+--- Training the model...
+--- 13.722718238830566 seconds ---
+The F1-Score of the training is 0.7392143561009219
+Predictions on test data are done
+--- The estimation is saved to reports.
+--- 21.706432580947876 seconds for the program to run ---

@@ -6,7 +6,7 @@ from sklearn import tree
 #from sklearn.ensemble import GradientBoostingClassifier
 
 from helper.conf import *
-from functions.helper import change_datatype, load_data
+from functions.helper import change_datatype, load_data, data_profiler
 from functions.encoder import encoder
 from functions.helper import load_data, change_datatype
 from functions.train_model import train_model
@@ -48,6 +48,8 @@ encoded_data = encoder(X_all_shape, train_labels, string_columns, one_hot_column
 encoded_data.to_csv(encoded_data_path, index=False)
 print ("--- The data is encoded.")
 
+# optional: make report on features after encoding.
+# data_profiler(encoded_data, "encoded_data")
 
 #-------------------------#
 ##      TRAIN data       ##
@@ -69,7 +71,7 @@ y_train = train_labels["damage_grade"]
 # Define model
 model = tree.DecisionTreeClassifier()
 param_grid = {
-    "max_depth": [4, 6, 8],
+    "max_depth": [4, 6],
     "min_samples_leaf": [2, 4],
     "criterion" : ['gini'],
     # gini is seemingly faster than entropy at equal performance at score
