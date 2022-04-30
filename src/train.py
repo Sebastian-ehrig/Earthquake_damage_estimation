@@ -45,7 +45,7 @@ print("Encoding the data:")
 encoded_data = encoder(X_all_shape, train_labels, string_columns, one_hot_columns)
 
 # Save encoded data for post-processing
-encoded_data.to_csv(encoded_data_path, index=False)
+# encoded_data.to_csv(encoded_data_path, index=False)
 print ("--- The data is encoded.")
 
 
