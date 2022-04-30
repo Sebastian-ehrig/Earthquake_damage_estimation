@@ -34,7 +34,6 @@ string_columns = [
 ]
 
 int_columns = [
-    'building_id',
     'count_floors_pre_eq', 'age',
     'area_percentage',
     'has_superstructure_adobe_mud',

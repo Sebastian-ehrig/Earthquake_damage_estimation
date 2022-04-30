@@ -5,6 +5,19 @@ Predicting the level of damage to buildings caused by the Gorkha earthquake depe
 
 This model was developed during the DSR (DataScienceRetreat) Batch30.
 
+
+Model workflow and data-analysis
+-----------------------------------------
+
+1. Loading the raw data (training-data, test-data, labels) 
+2. Concatenate training- and test-data; 
+   Clean data e.g. convert str to int where applicable
+3. Encode data: reads in the values and the labels, applies target encoding and 
+   returns a dataframe which consists only of numeric columns.
+4. Model training:
+5. Model Predictions and generating the reports.
+
+
 Project Organization and folder structure
 -----------------------------------------
 
