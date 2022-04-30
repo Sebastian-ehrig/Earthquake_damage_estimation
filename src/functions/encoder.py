@@ -11,6 +11,11 @@ def encoder(values: pd.DataFrame, labels: pd.DataFrame, string_columns: List[str
     train_data = pd.merge(values, labels, how="inner")
     encoded_values = values.copy()
 
+    # one-hot encoding
+    for col in tqdm(string_columns):
+        
+
+    # target encoding with label-mean
     for col in tqdm(string_columns):
         data_snippet = train_data.loc[:, [col, "damage_grade"]].copy()
         categorical_dict = data_snippet.groupby(col).mean().to_dict()["damage_grade"]

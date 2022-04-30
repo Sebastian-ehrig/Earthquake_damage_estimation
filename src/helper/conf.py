@@ -22,19 +22,23 @@ string_columns = [
     'geo_level_1_id',
     'geo_level_2_id',
     'geo_level_3_id',
-    'height_percentage',
-    'land_surface_condition',
     'foundation_type',
     'roof_type',
     'ground_floor_type',
+    'plan_configuration',
+    # 'legal_ownership_status' parameter has no effect
+]
+
+one_hot_columns = [
+    'land_surface_condition',
+    'roof_type'
     'other_floor_type',
     'position',
-    'plan_configuration',
-    'legal_ownership_status'
 ]
 
 int_columns = [
-    'count_floors_pre_eq', 'age',
+    'count_floors_pre_eq', 
+    'age',
     'area_percentage',
     'has_superstructure_adobe_mud',
     'has_superstructure_mud_mortar_stone',
