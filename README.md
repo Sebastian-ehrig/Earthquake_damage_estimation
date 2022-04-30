@@ -5,8 +5,8 @@ Predicting the level of damage to buildings caused by the Gorkha earthquake depe
 
 This model was developed during the DSR (DataScienceRetreat) Batch30.
 
-Project Organization
-------------
+Project Organization and folder structure
+-----------------------------------------
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -19,8 +19,8 @@ Project Organization
     ├── models             <- Models generated.  
     │   └── Model adjustments    <- Contains log-files for keeping track of model refinements.
     │
-    ├── reports            <- Generated analysis as csv.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── reports            <- Contains reports in html format as well as csv-files keeping track 
+    │                         of all the analysis that have been perfomed.
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment.
     │
@@ -41,12 +41,14 @@ Project Organization
     │   ├── main.py            <- Script to execute the entire analysis and model predicion
     │   └── train.py           <- Script for encoding the data, taining the model and making 
     │                             the final predictions
+    │
+    ├── test_environment.py   <- Test the dvelopment environment to make sure all packages are
+    │                            working properly.
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
-
 --------
-
-data notations used in the scope of this project:
+Data notations used in the scope of this project:
+-----------------------------------------
 
 raw data: 
  train_values 
