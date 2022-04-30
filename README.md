@@ -17,6 +17,7 @@ Project Organization
     │   └── raw            <- The original, immutable data dump.
     │
     ├── models             <- Models generated.  
+    │   └── Model adjustments    <- Contains log-files for keeping track of model refinements.
     │
     ├── reports            <- Generated analysis as csv.
     │   └── figures        <- Generated graphics and figures to be used in reporting
