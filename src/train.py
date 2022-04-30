@@ -69,8 +69,8 @@ y_train = train_labels["damage_grade"]
 # Define model
 model = tree.DecisionTreeClassifier()
 param_grid = {
-    "max_depth": [2, 4, 6, 10],
-    "min_samples_leaf": [2, 4, 6],
+    "max_depth": [2, 6, 8],
+    "min_samples_leaf": [2, 4],
     "criterion" : ['gini'],
     # gini is seemingly faster than entropy at equal performance at score
     }
