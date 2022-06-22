@@ -1,4 +1,4 @@
-Earthquake_predictor
+Earthquake damage predictor
 ==============================
 
 Predicting the level of damage to buildings caused by the Gorkha earthquake depending on building location and building construction. The Data that is used for the model predictions are based on surveys conducted by Kathmandu Living Labs and the Central Bureau of Statistics.
